@@ -6,7 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.chatappdemotwo.databinding.MyMessageItemBinding
 import com.example.chatappdemotwo.model.ChatModel
 
-class ChatMyMessageItemHolder(private val binding: MyMessageItemBinding) : RecyclerView.ViewHolder(binding.root) {
+class ChatMyMessageItemHolder(private val binding: MyMessageItemBinding) :
+    RecyclerView.ViewHolder(binding.root) {
     fun bind(chat: ChatModel) {
         binding.apply {
             myChatImage.setImageResource(chat.image)

@@ -16,7 +16,6 @@ import com.example.chatappdemotwo.model.ChatModel
 class ChatFragment : Fragment() {
     private val binding by lazy { FragmentChatBinding.inflate(layoutInflater) }
     private val args: ChatFragmentArgs by navArgs()
-    private var chatAdapter = ChatAdapter()
     private var chatModelList = ArrayList<ChatModel>()
     private var index = 0
 
@@ -80,7 +79,7 @@ class ChatFragment : Fragment() {
             binding.chatRecyclerView.apply {
                 layoutManager = LinearLayoutManager(activity).apply {
                     stackFromEnd = true
-                    reverseLayout = true
+                    reverseLayout = false
                 }
             }
             binding.chatRecyclerView.adapter = this

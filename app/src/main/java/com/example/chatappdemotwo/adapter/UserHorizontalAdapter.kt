@@ -18,16 +18,16 @@ class UserHorizontalAdapter : ListAdapter<UserModel, UserHorizontalAdapter.ItemH
             binding.apply {
                 imgUserHorizontal.setImageResource(user.friendImage)
                 usernameHorizontal.text = user.friendUsername
-//                rootHorizontalLayout.setOnClickListener {
-//                    navigateToChatFragment(user, holder)
-//                }
+                rootHorizontalLayout.setOnClickListener {
+                    navigateToChatFragment(user, holder)
+                }
             }
         }
 
-//        private fun navigateToChatFragment(user: UserModel, holder: ItemHolder) {
-//            val action = ChannelFragmentDirections.actionChannelFragmentToChatFragment(user)
-//            holder.itemView.findNavController().navigate(action)
-//        }
+        private fun navigateToChatFragment(user: UserModel, holder: ItemHolder) {
+            val action = ChannelFragmentDirections.actionChannelFragmentToChatFragment(user)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {

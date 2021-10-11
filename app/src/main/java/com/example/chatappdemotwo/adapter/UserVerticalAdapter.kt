@@ -21,8 +21,8 @@ class UserVerticalAdapter : ListAdapter<UserModel, RecyclerView.ViewHolder>(Diff
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is UserGroupVerticalItemHolder -> holder.bind(getItem(position))
-            is UserVerticalItemHolder -> holder.bind(getItem(position))
+            is UserGroupVerticalItemHolder -> holder.bind(getItem(position), holder)
+            is UserVerticalItemHolder -> holder.bind(getItem(position), holder)
         }
     }
 

@@ -8,25 +8,25 @@ import com.example.chatappdemotwo.databinding.UsersGroupChannelVerticalLayoutBin
 import com.example.chatappdemotwo.model.UserModel
 import com.example.chatappdemotwo.ui.channel.ChannelFragmentDirections
 
-class UserGroupVerticalItemHolder(private val binding: UsersGroupChannelVerticalLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
-    fun bind(user: UserModel) {
+class UserGroupVerticalItemHolder(private val binding: UsersGroupChannelVerticalLayoutBinding) :
+    RecyclerView.ViewHolder(binding.root) {
+    fun bind(user: UserModel, holder: UserGroupVerticalItemHolder) {
         binding.apply {
             imgMyUserGroupVertical.setImageResource(user.myImage)
             imgFriendUserGroupVertical.setImageResource(user.friendImage)
             myNameGroupVertical.text = user.myUsername
             friendNameGroupVertical.text = user.friendUsername
             lastActiveTimeGroupVertical.text = user.activeTime
-//            rootGroupVerticalLayout.setOnClickListener {
-//                navigateToChatFragment(user, holder)
-//            }
+            rootGroupVerticalLayout.setOnClickListener {
+                navigateToChatFragment(user, holder)
+            }
         }
-
     }
 
-//    private fun navigateToChatFragment(user: UserModel, holder: UserGroupVerticalItemHolder) {
-//        val action = ChannelFragmentDirections.actionChannelFragmentToChatFragment(user)
-//        holder.itemView.findNavController().navigate(action)
-//    }
+    private fun navigateToChatFragment(user: UserModel, holder: UserGroupVerticalItemHolder) {
+        val action = ChannelFragmentDirections.actionChannelFragmentToChatFragment(user)
+        holder.itemView.findNavController().navigate(action)
+    }
 
     companion object {
         fun from(parent: ViewGroup): UserGroupVerticalItemHolder {
