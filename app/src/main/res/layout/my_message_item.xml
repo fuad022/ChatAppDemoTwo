@@ -6,14 +6,16 @@
 
     <TextView
         android:id="@+id/my_message_text"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/my_message_bubble"
-        android:paddingHorizontal="20dp"
+        android:maxEms="10"
+        android:minEms="4"
+        android:paddingStart="10dp"
+        android:paddingEnd="25dp"
         android:paddingVertical="5dp"
         android:text="@string/some_message"
         android:textColor="@color/white"
@@ -21,14 +23,13 @@
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/my_chat_image"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/my_chat_image"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:backgroundTint="@android:color/transparent"
         android:scaleType="centerCrop"
         android:src="@drawable/photo_1"
