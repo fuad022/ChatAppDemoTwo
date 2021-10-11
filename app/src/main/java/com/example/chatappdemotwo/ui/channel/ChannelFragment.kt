@@ -13,6 +13,7 @@ import com.example.chatappdemotwo.adapter.UserHorizontalAdapter
 import com.example.chatappdemotwo.adapter.UserVerticalAdapter
 import com.example.chatappdemotwo.databinding.FragmentChannelBinding
 import com.example.chatappdemotwo.model.UserModel
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -27,94 +28,67 @@ class ChannelFragment : Fragment() {
         R.drawable.photo_6,
         R.drawable.photo_7
     )
-    private var userModelList = ArrayList<UserModel>()
-    private var finalUserModelList = ArrayList<UserModel>()
-    private var userHorizontalAdapter = UserHorizontalAdapter()
-    private var userVerticalAdapter = UserVerticalAdapter()
+    private var horizontalUsersList = ArrayList<UserModel>()
+    private var verticalUsersList = ArrayList<UserModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        setHasOptionsMenu(true)
         init()
+        setupHorizontalAdapter()
+        setupVerticalAdapter()
         return binding.root
     }
 
     private fun init() {
-        binding.apply {
-            setHasOptionsMenu(true)
-            (activity as AppCompatActivity).setSupportActionBar(binding.toolbarChannel)
-
-            setupHorizontalChannels()
-            setupVerticalChannels()
-        }
+        (activity as AppCompatActivity).setSupportActionBar(binding.toolbarChannel)
     }
 
     private fun activeTime(): String {
+//        val calendar = Calendar.getInstance()
+//        val time = "${calendar.get(Calendar.HOUR)}:${calendar.get(Calendar.MINUTE)}"
+//        Log.d("Time", "Time - " + time)
         val c = Calendar.getInstance()
-        val hour = c.get(Calendar.HOUR_OF_DAY)
-        val minute = c.get(Calendar.MINUTE)
-        return "$hour:$minute"
+        val simpleDateFormat = SimpleDateFormat("HH:mm")
+        val time = simpleDateFormat.format(c.time).toString()
+        return time
     }
 
-    private fun setupUsers(): ArrayList<UserModel> {
-        userModelList.add(UserModel("Frank","Marta",imageList[0],imageList[1],activeTime(),false))
-        userModelList.add(UserModel("Frank","Francis",imageList[0],imageList[3],activeTime(),true))
-        userModelList.add(UserModel("Frank","Gonzales",imageList[0],imageList[5],activeTime(),false))
-        userModelList.add(UserModel("Frank","Martina",imageList[0],imageList[2],activeTime(),true))
-        Log.d("UserModelList", "UserModelList - " + userModelList)
-        return userModelList
+    private fun horizontalUsersList(): ArrayList<UserModel> {
+        horizontalUsersList.add(UserModel("Frank","Marta",imageList[0],imageList[1],activeTime(),false))
+        horizontalUsersList.add(UserModel("Frank","Francis",imageList[0],imageList[3],activeTime(),true))
+        horizontalUsersList.add(UserModel("Frank","Gonzales",imageList[0],imageList[5],activeTime(),false))
+        horizontalUsersList.add(UserModel("Frank","Martina",imageList[0],imageList[2],activeTime(),true))
+        Log.d("horizontalUsersList", "horizontalUsersList - " + horizontalUsersList)
+        return horizontalUsersList
     }
 
-    //// Horizontal Users //////
-    private fun setupHorizontalChannels() {
-        setupHorizontalRecyclerView()
+    private fun verticalUsersList(): ArrayList<UserModel> {
+        verticalUsersList.add(UserModel("Frank","Marta",imageList[0],imageList[1],activeTime(),false))
+        verticalUsersList.add(UserModel("Frank","Francis",imageList[0],imageList[3],activeTime(),true))
+        verticalUsersList.add(UserModel("Frank","Gonzales",imageList[0],imageList[5],activeTime(),false))
+        verticalUsersList.add(UserModel("Frank","Martina",imageList[0],imageList[2],activeTime(),true))
+        Log.d("verticalUsersList", "verticalUsersList - " + verticalUsersList)
+        return verticalUsersList
     }
 
-    private fun setupHorizontalRecyclerView() {
-        binding.apply {
-            usersRecyclerViewHorizontal.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            usersRecyclerViewHorizontal.adapter = loadHorizontalUser()
+    private fun setupHorizontalAdapter() {
+        UserHorizontalAdapter().apply {
+            submitList(horizontalUsersList().filter { !it.isGroup }.toMutableList())
+            binding.usersRecyclerViewHorizontal.adapter = this
         }
     }
 
-    private fun loadHorizontalUser(): UserHorizontalAdapter {
-        setupUsers().forEachIndexed { _, userModel ->
-            if (!userModel.isGroup) {
-                finalUserModelList.add(userModel)
-            }
-        }
-        userHorizontalAdapter.submitList(finalUserModelList)
-        return userHorizontalAdapter
-    }
-    //// Horizontal Users //////
-
-    //// Vertical Users /////
-    private fun setupVerticalChannels() {
-        setupVerticalRecyclerView()
-    }
-
-    private fun setupVerticalRecyclerView() {
-        binding.apply {
-            usersRecyclerViewHorizontal.layoutManager = LinearLayoutManager(context)
-            usersRecyclerViewHorizontal.adapter = loadVerticalUser()
+    private fun setupVerticalAdapter() {
+        UserVerticalAdapter().apply {
+            submitList(verticalUsersList().toMutableList())
+            binding.usersRecyclerViewVertical.layoutManager = LinearLayoutManager(activity)
+            binding.usersRecyclerViewVertical.adapter = this
         }
     }
 
-    private fun loadVerticalUser(): UserVerticalAdapter {
-        setupUsers().forEachIndexed { _, userModel ->
-            if (!userModel.isGroup) {
-                finalUserModelList.add(userModel)
-            } else {
-                userVerticalAdapter = UserVerticalAdapter(true)
-                finalUserModelList.add(userModel)
-            }
-        }
-
-        userVerticalAdapter.submitList(finalUserModelList)
-        return userVerticalAdapter
-    }
-    //// Vertical Users /////
 }
 
 

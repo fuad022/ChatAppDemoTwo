@@ -12,7 +12,8 @@ import com.example.chatappdemotwo.ui.channel.ChannelFragmentDirections
 
 class UserHorizontalAdapter : ListAdapter<UserModel, UserHorizontalAdapter.ItemHolder>(DiffCallback()) {
 
-    class ItemHolder(private val binding: UserChannelHorizontalLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ItemHolder(private val binding: UserChannelHorizontalLayoutBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(user: UserModel, holder: ItemHolder) {
             binding.apply {
                 imgUserHorizontal.setImageResource(user.friendImage)
@@ -51,7 +52,7 @@ class UserHorizontalAdapter : ListAdapter<UserModel, UserHorizontalAdapter.ItemH
             oldItem == newItem
     }
 
-    override fun submitList(list: MutableList<UserModel>?) {
+    override fun submitList(list: List<UserModel>?) {
         super.submitList(list?.map { it.copy() })
     }
 }

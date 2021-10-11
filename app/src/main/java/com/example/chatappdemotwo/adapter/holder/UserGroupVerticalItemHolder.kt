@@ -9,7 +9,7 @@ import com.example.chatappdemotwo.model.UserModel
 import com.example.chatappdemotwo.ui.channel.ChannelFragmentDirections
 
 class UserGroupVerticalItemHolder(private val binding: UsersGroupChannelVerticalLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
-    fun bind(user: UserModel, holder: UserGroupVerticalItemHolder) {
+    fun bind(user: UserModel) {
         binding.apply {
             imgMyUserGroupVertical.setImageResource(user.myImage)
             imgFriendUserGroupVertical.setImageResource(user.friendImage)

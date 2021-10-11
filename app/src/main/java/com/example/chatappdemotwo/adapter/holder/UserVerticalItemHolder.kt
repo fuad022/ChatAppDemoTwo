@@ -9,7 +9,7 @@ import com.example.chatappdemotwo.model.UserModel
 import com.example.chatappdemotwo.ui.channel.ChannelFragmentDirections
 
 class UserVerticalItemHolder(private val binding: UserChannelVerticalLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
-    fun bind(user: UserModel, holder: UserVerticalItemHolder) {
+    fun bind(user: UserModel) {
         binding.apply {
             imgFriendVertical.setImageResource(user.friendImage)
             usernameFriendVertical.text = user.friendUsername

@@ -8,12 +8,16 @@ import com.example.chatappdemotwo.adapter.holder.ChatFriendMessageItemHolder
 import com.example.chatappdemotwo.adapter.holder.ChatMyMessageItemHolder
 import com.example.chatappdemotwo.model.ChatModel
 
-class ChatAdapter(private val mySendMessage: Boolean = false) : ListAdapter<ChatModel, RecyclerView.ViewHolder>(DiffCallback()) {
+class ChatAdapter : ListAdapter<ChatModel, RecyclerView.ViewHolder>(DiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (mySendMessage) ChatMyMessageItemHolder.from(parent)
-        else ChatFriendMessageItemHolder.from(parent)
-    }
+    private val itemTypeMe = 0
+    private val itemTypeSender = 1
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        if (viewType == itemTypeMe)
+            ChatMyMessageItemHolder.from(parent)
+        else
+            ChatFriendMessageItemHolder.from(parent)
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
@@ -21,6 +25,12 @@ class ChatAdapter(private val mySendMessage: Boolean = false) : ListAdapter<Chat
             is ChatFriendMessageItemHolder -> holder.bind(getItem(position))
         }
     }
+
+    override fun getItemViewType(position: Int) =
+        if (getItem(position).isMe)
+            itemTypeMe
+        else
+            itemTypeSender
 
     private class DiffCallback : DiffUtil.ItemCallback<ChatModel>() {
         override fun areItemsTheSame(oldItem: ChatModel, newItem: ChatModel) =
@@ -30,7 +40,7 @@ class ChatAdapter(private val mySendMessage: Boolean = false) : ListAdapter<Chat
             oldItem == newItem
     }
 
-    override fun submitList(list: MutableList<ChatModel>?) {
+    override fun submitList(list: List<ChatModel>?) {
         super.submitList(list?.map { it.copy() })
     }
 }

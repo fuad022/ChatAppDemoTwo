@@ -17,7 +17,7 @@ class ChatFragment : Fragment() {
     private val binding by lazy { FragmentChatBinding.inflate(layoutInflater) }
     private val args: ChatFragmentArgs by navArgs()
     private var chatAdapter = ChatAdapter()
-    private var chatList = ArrayList<ChatModel>()
+    private var chatModelList = ArrayList<ChatModel>()
     private var index = 0
 
     override fun onCreateView(
@@ -38,49 +38,52 @@ class ChatFragment : Fragment() {
                 binding.toolbarChat.title = args.userModel.friendUsername
             }
 
-            setupChat()
+            clickSendBtn()
         }
     }
 
-    private fun setupChat() {
+    private fun clickSendBtn() {
         binding.apply {
             sendBtn.setOnClickListener {
                 index++
-                val message = typeMsgEditText.text.toString()
+                val message = edt.text.toString()
                 if (message.isEmpty()) {
                     Toast.makeText(it.context, "Start typing", Toast.LENGTH_SHORT).show()
                 } else {
                     if (index % 2 == 0) {
-                        loadMessage(message, args.userModel.friendImage, false)
+                        sendMessageData(message, args.userModel.friendImage, false)
                     } else {
-                        loadMessage(message, args.userModel.myImage, true)
+                        sendMessageData(message, args.userModel.myImage, true)
                     }
-                    typeMsgEditText.setText("")
+                    edt.setText("")
                 }
             }
         }
     }
 
-    private fun loadMessage(message: String, image: Int, isMe: Boolean) {
-        val chat = ChatModel(image, message, isMe)
-        if (isMe) {
-            chatAdapter = ChatAdapter(isMe)
-            chatList.add(chat)
-        } else {
-            chatList.add(chat)
-        }
-        chatAdapter.submitList(chatList)
+    private fun sendMessageData(message: String, image: Int, isMe: Boolean) {
+        val chatData = ChatModel(image, message, isMe)
+//        if (isMe) {
+//            chatAdapter = ChatAdapter(isMe)
+//            chatModelList.add(chat)
+//        } else {
+//            chatModelList.add(chat)
+//        }
+//        chatAdapter.submitList(chatModelList)
+        chatModelList.add(chatData)
+        setupChatAdapter(chatModelList)
+    }
 
-        binding.apply {
-//            chatRecyclerView.layoutManager = LinearLayoutManager(activity)
-            chatRecyclerView.apply {
-                layoutManager = LinearLayoutManager(context).apply {
+    private fun setupChatAdapter(list: ArrayList<ChatModel>) {
+        ChatAdapter().apply {
+            submitList(list.toMutableList())
+            binding.chatRecyclerView.apply {
+                layoutManager = LinearLayoutManager(activity).apply {
                     stackFromEnd = true
                     reverseLayout = true
                 }
             }
-
-            chatRecyclerView.adapter = chatAdapter
+            binding.chatRecyclerView.adapter = this
         }
     }
 
