@@ -6,27 +6,28 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.fragment.app.viewModels
 import com.example.chatappdemotwo.databinding.UserChannelHorizontalLayoutBinding
 import com.example.chatappdemotwo.model.UserModel
 import com.example.chatappdemotwo.ui.channel.ChannelFragmentDirections
+import com.example.chatappdemotwo.ui.channel.UserViewModel
 
 class UserHorizontalAdapter : ListAdapter<UserModel, UserHorizontalAdapter.ItemHolder>(DiffCallback()) {
 
-    class ItemHolder(private val binding: UserChannelHorizontalLayoutBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        fun bind(user: UserModel, holder: ItemHolder) {
-            binding.apply {
-                imgUserHorizontal.setImageResource(user.friendImage)
-                usernameHorizontal.text = user.friendUsername
-                rootHorizontalLayout.setOnClickListener {
-                    navigateToChatFragment(user, holder)
+    inner class ItemHolder(private val binding: UserChannelHorizontalLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(userModel: UserModel?) {
+            userModel?.let { model ->
+                binding.apply {
+                    imgUserHorizontal.setImageResource(model.friendImage!!)
+                    usernameHorizontal.text = model.friendUsername
+
+                    root.setOnClickListener {
+                        model.let { user ->
+                            setOnItemClick?.invoke(user)
+                        }
+                    }
                 }
             }
-        }
-
-        private fun navigateToChatFragment(user: UserModel, holder: ItemHolder) {
-            val action = ChannelFragmentDirections.actionChannelFragmentToChatFragment(user)
-            holder.itemView.findNavController().navigate(action)
         }
     }
 
@@ -41,12 +42,12 @@ class UserHorizontalAdapter : ListAdapter<UserModel, UserHorizontalAdapter.ItemH
     }
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
-        holder.bind(getItem(position), holder)
+        holder.bind(getItem(position))
     }
 
     private class DiffCallback : DiffUtil.ItemCallback<UserModel>() {
         override fun areItemsTheSame(oldItem: UserModel, newItem: UserModel) =
-            oldItem.friendImage == newItem.friendImage
+            oldItem == newItem
 
         override fun areContentsTheSame(oldItem: UserModel, newItem: UserModel) =
             oldItem == newItem
@@ -54,5 +55,11 @@ class UserHorizontalAdapter : ListAdapter<UserModel, UserHorizontalAdapter.ItemH
 
     override fun submitList(list: List<UserModel>?) {
         super.submitList(list?.map { it.copy() })
+    }
+
+    private var setOnItemClick: ((UserModel) -> Unit)? = null
+
+    fun setOnClickListener(listener: (UserModel) -> Unit) {
+        setOnItemClick = listener
     }
 }

@@ -1,14 +1,16 @@
 package com.example.chatappdemotwo.ui.chat
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.chatappdemotwo.R
 import com.example.chatappdemotwo.adapter.ChatAdapter
 import com.example.chatappdemotwo.databinding.FragmentChatBinding
 import com.example.chatappdemotwo.model.ChatModel
@@ -23,22 +25,33 @@ class ChatFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        init()
+        initToolbar()
+        clickSendBtn()
         return binding.root
     }
 
-    private fun init() {
+    private fun initToolbar() {
         binding.apply {
             setHasOptionsMenu(true)
             (activity as AppCompatActivity).setSupportActionBar(binding.toolbarChat)
-            if (args.userModel.isGroup) {
-                binding.toolbarChat.title = "GROUP"
+            if (args.userModel.isGroup!!) {
+                toolbarChat.title = "GROUP"
             } else {
-                binding.toolbarChat.title = args.userModel.friendUsername
+                toolbarChat.title = args.userModel.friendUsername
+                toolbarChat.subtitle = "Active Now"
+                toolbarChat.isSubtitleCentered = true
+                toolbarChat.setSubtitleTextColor(Color.WHITE)
             }
 
-            clickSendBtn()
+            toolbarChat.setNavigationOnClickListener {
+                findNavController().navigate(R.id.action_chatFragment_to_channelFragment)
+            }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.settings_menu, menu)
     }
 
     private fun clickSendBtn() {
@@ -50,9 +63,9 @@ class ChatFragment : Fragment() {
                     Toast.makeText(it.context, "Start typing", Toast.LENGTH_SHORT).show()
                 } else {
                     if (index % 2 == 0) {
-                        sendMessageData(message, args.userModel.friendImage, false)
+                        sendMessageData(message, args.userModel.friendImage!!, false)
                     } else {
-                        sendMessageData(message, args.userModel.myImage, true)
+                        sendMessageData(message, args.userModel.myImage!!, true)
                     }
                     edt.setText("")
                 }
@@ -62,13 +75,6 @@ class ChatFragment : Fragment() {
 
     private fun sendMessageData(message: String, image: Int, isMe: Boolean) {
         val chatData = ChatModel(image, message, isMe)
-//        if (isMe) {
-//            chatAdapter = ChatAdapter(isMe)
-//            chatModelList.add(chat)
-//        } else {
-//            chatModelList.add(chat)
-//        }
-//        chatAdapter.submitList(chatModelList)
         chatModelList.add(chatData)
         setupChatAdapter(chatModelList)
     }

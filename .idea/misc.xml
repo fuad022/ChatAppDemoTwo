@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/drawable/friend_message_bubble.xml" value="0.37083333333333335" />
+        <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/drawable/my_message_bubble.xml" value="0.37083333333333335" />
+        <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/layout/activity_main.xml" value="0.3546875" />
+        <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/layout/fragment_channel.xml" value="0.3546875" />
+        <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/layout/fragment_chat.xml" value="0.3546875" />
+        <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/layout/fragment_home.xml" value="0.3546875" />
+        <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/layout/friend_message_item.xml" value="0.3546875" />
+        <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/layout/my_message_item.xml" value="0.3546875" />
+        <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/layout/user_channel_horizontal_layout.xml" value="0.5" />
+        <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/layout/user_channel_vertical_layout.xml" value="0.5" />
+        <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/layout/users_group_channel_vertical_layout.xml" value="0.5" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

@@ -34,7 +34,7 @@ class ChatAdapter : ListAdapter<ChatModel, RecyclerView.ViewHolder>(DiffCallback
 
     private class DiffCallback : DiffUtil.ItemCallback<ChatModel>() {
         override fun areItemsTheSame(oldItem: ChatModel, newItem: ChatModel) =
-            oldItem.image == newItem.image
+            oldItem == newItem
 
         override fun areContentsTheSame(oldItem: ChatModel, newItem: ChatModel) =
             oldItem == newItem

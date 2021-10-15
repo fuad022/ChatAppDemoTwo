@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--Shadow Layer-->
+
     <item>
         <rotate
             android:fromDegrees="-45"
@@ -14,7 +16,8 @@
     <item android:right="16dp">
         <shape android:shape="rectangle">
             <solid android:color="@color/my_msg_color" />
-            <corners android:radius="10dp" />
+            <corners android:radius="4dp" />
         </shape>
     </item>
+
 </layer-list>

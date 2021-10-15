@@ -1,119 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/root_group_vertical_layout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/img_friend_user_group_vertical"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="10dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/photo_2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/Circular" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root_group_vertical_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/img_my_user_group_vertical"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@android:color/transparent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/photo_1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/Circular" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_friend_user_group_vertical"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/Circular"
+            tools:src="@drawable/photo_2" />
 
-    <TextView
-        android:id="@+id/my_name_group_vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:text="@string/myname"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/img_friend_user_group_vertical"
-        app:layout_constraintTop_toTopOf="@id/img_my_user_group_vertical" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_my_user_group_vertical"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@android:color/transparent"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/Circular"
+            tools:src="@drawable/photo_1" />
 
-    <TextView
-        android:id="@+id/vs_divider_group_vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:text="@string/vs"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/my_name_group_vertical"
-        app:layout_constraintStart_toEndOf="@id/my_name_group_vertical"
-        app:layout_constraintTop_toTopOf="@id/my_name_group_vertical" />
+        <TextView
+            android:id="@+id/my_name_group_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/img_friend_user_group_vertical"
+            app:layout_constraintTop_toTopOf="@id/img_my_user_group_vertical"
+            tools:text="@string/myname" />
 
-    <TextView
-        android:id="@+id/friend_name_group_vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:text="@string/friendname"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/vs_divider_group_vertical"
-        app:layout_constraintStart_toEndOf="@id/vs_divider_group_vertical"
-        app:layout_constraintTop_toTopOf="@id/vs_divider_group_vertical" />
+        <TextView
+            android:id="@+id/vs_divider_group_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/vs"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/my_name_group_vertical"
+            app:layout_constraintStart_toEndOf="@id/my_name_group_vertical"
+            app:layout_constraintTop_toTopOf="@id/my_name_group_vertical" />
 
-    <TextView
-        android:id="@+id/group_name_group_vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:text="@string/group"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/friend_name_group_vertical"
-        app:layout_constraintStart_toEndOf="@id/friend_name_group_vertical"
-        app:layout_constraintTop_toTopOf="@id/friend_name_group_vertical" />
+        <TextView
+            android:id="@+id/friend_name_group_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/vs_divider_group_vertical"
+            app:layout_constraintStart_toEndOf="@id/vs_divider_group_vertical"
+            app:layout_constraintTop_toTopOf="@id/vs_divider_group_vertical"
+            tools:text="@string/friendname" />
 
-    <TextView
-        android:id="@+id/content_group_vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/group_chats_and_videos"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@id/img_my_user_group_vertical"
-        app:layout_constraintStart_toStartOf="@id/my_name_group_vertical" />
+        <TextView
+            android:id="@+id/group_name_group_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/group"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/friend_name_group_vertical"
+            app:layout_constraintStart_toEndOf="@id/friend_name_group_vertical"
+            app:layout_constraintTop_toTopOf="@id/friend_name_group_vertical" />
 
-    <TextView
-        android:id="@+id/point_vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="."
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/content_group_vertical"
-        app:layout_constraintStart_toEndOf="@id/content_group_vertical"
-        app:layout_constraintTop_toTopOf="@id/content_group_vertical" />
+        <TextView
+            android:id="@+id/content_group_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/group_chats_and_videos"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/img_my_user_group_vertical"
+            app:layout_constraintStart_toStartOf="@id/my_name_group_vertical" />
 
-    <TextView
-        android:id="@+id/last_active_time_group_vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="15:00"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@id/content_group_vertical"
-        app:layout_constraintStart_toEndOf="@id/content_group_vertical"
-        app:layout_constraintTop_toTopOf="@id/content_group_vertical" />
+        <TextView
+            android:id="@+id/point_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="."
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/content_group_vertical"
+            app:layout_constraintStart_toEndOf="@id/content_group_vertical"
+            app:layout_constraintTop_toTopOf="@id/content_group_vertical" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/last_active_time_group_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/content_group_vertical"
+            app:layout_constraintStart_toEndOf="@id/content_group_vertical"
+            app:layout_constraintTop_toTopOf="@id/content_group_vertical"
+            tools:text="15:00" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

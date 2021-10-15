@@ -5,15 +5,6 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/channelFragment">
 
-<!--    <fragment-->
-<!--        android:id="@+id/homeFragment"-->
-<!--        android:name="com.example.chatappdemotwo.ui.home.HomeFragment"-->
-<!--        android:label="fragment_home"-->
-<!--        tools:layout="@layout/fragment_home">-->
-<!--        <action-->
-<!--            android:id="@+id/action_homeFragment_to_channelFragment"-->
-<!--            app:destination="@id/channelFragment" />-->
-<!--    </fragment>-->
     <fragment
         android:id="@+id/channelFragment"
         android:name="com.example.chatappdemotwo.ui.channel.ChannelFragment"
@@ -31,5 +22,8 @@
         <argument
             android:name="userModel"
             app:argType="com.example.chatappdemotwo.model.UserModel" />
+        <action
+            android:id="@+id/action_chatFragment_to_channelFragment"
+            app:destination="@id/channelFragment" />
     </fragment>
 </navigation>

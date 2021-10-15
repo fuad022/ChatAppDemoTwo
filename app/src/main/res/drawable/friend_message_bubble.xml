@@ -14,7 +14,7 @@
     <item android:left="16dp">
         <shape android:shape="rectangle">
             <solid android:color="@color/friend_msg_color" />
-            <corners android:radius="10dp" />
+            <corners android:radius="4dp" />
         </shape>
     </item>
 </layer-list>

@@ -16,9 +16,6 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        binding.btnEnter.setOnClickListener {
-//            view?.findNavController()?.navigate(R.id.channelFragment)
-//        }
         return binding.root
     }
 
