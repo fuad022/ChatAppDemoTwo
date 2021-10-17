@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.chatappdemotwo.R
 import com.example.chatappdemotwo.databinding.UserChannelVerticalLayoutBinding
 import com.example.chatappdemotwo.databinding.UsersGroupChannelVerticalLayoutBinding
 import com.example.chatappdemotwo.model.UserModel
@@ -21,6 +22,12 @@ class UserVerticalAdapter : ListAdapter<UserModel, RecyclerView.ViewHolder>(Diff
                     imgFriendVertical.setImageResource(model.friendImage!!)
                     usernameFriendVertical.text = model.friendUsername
                     lastActiveTimeVertical.text = model.activeTime
+
+                    if (model.isFriendOnline!!){
+                        indicator.setBackgroundResource(R.drawable.online)
+                    } else {
+                        indicator.setBackgroundResource(R.drawable.offline)
+                    }
 
                     root.setOnClickListener {
                         model.let { user ->

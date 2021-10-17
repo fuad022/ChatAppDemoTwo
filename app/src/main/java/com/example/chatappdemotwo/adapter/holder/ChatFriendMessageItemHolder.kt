@@ -3,6 +3,7 @@ package com.example.chatappdemotwo.adapter.holder
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.chatappdemotwo.R
 import com.example.chatappdemotwo.databinding.FriendMessageItemBinding
 import com.example.chatappdemotwo.model.ChatModel
 
@@ -12,6 +13,13 @@ class ChatFriendMessageItemHolder(private val binding: FriendMessageItemBinding)
         binding.apply {
             friendChatImage.setImageResource(chat.image)
             friendMessageText.text = chat.message
+
+            if (chat.isFriendOnline) {
+                indicator.setBackgroundResource(R.drawable.online)
+            } else {
+                indicator.setBackgroundResource(R.drawable.offline)
+            }
+
         }
     }
 

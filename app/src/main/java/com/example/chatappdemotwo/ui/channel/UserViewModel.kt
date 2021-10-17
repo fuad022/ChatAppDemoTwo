@@ -28,10 +28,10 @@ class UserViewModel : ViewModel() {
     )
 
     private val userList = listOf(
-        UserModel("Frank", "Marta", imageList[0], imageList[1], activeTime(), false),
-        UserModel("Frank", "Francis", imageList[0], imageList[3], activeTime(), true),
-        UserModel("Frank", "Gonzales", imageList[0], imageList[5], activeTime(), false),
-        UserModel("Frank", "Martina", imageList[0], imageList[2], activeTime(), true)
+        UserModel("Frank", "Marta", imageList[0], imageList[1], activeTime(), false, true),
+        UserModel("Frank", "Francis", imageList[0], imageList[3], activeTime(), true, true),
+        UserModel("Frank", "Gonzales", imageList[0], imageList[5], activeTime(), false, false),
+        UserModel("Frank", "Martina", imageList[0], imageList[2], activeTime(), true, false)
     )
 
     private fun activeTime(): String {

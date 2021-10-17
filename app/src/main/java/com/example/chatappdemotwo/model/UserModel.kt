@@ -10,5 +10,6 @@ data class UserModel(
     val myImage: Int?,
     val friendImage: Int?,
     val activeTime: String?,
-    val isGroup: Boolean?
+    val isGroup: Boolean?,
+    val isFriendOnline: Boolean?
 ) : Parcelable

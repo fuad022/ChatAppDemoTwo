@@ -22,6 +22,17 @@
             app:shapeAppearanceOverlay="@style/Circular"
             tools:src="@drawable/photo_1" />
 
+        <ImageView
+            android:id="@+id/indicator"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="57dp"
+            android:layout_marginTop="38dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@drawable/online" />
+
         <TextView
             android:id="@+id/username_friend_vertical"
             android:layout_width="wrap_content"
@@ -39,8 +50,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/chats_and_videos"
+            android:layout_marginTop="8dp"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@id/img_friend_vertical"
+            app:layout_constraintTop_toBottomOf="@id/username_friend_vertical"
             app:layout_constraintStart_toStartOf="@id/username_friend_vertical" />
 
         <TextView

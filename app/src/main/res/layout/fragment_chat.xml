@@ -53,6 +53,7 @@
             android:paddingEnd="10dp"
             android:scrollbars="vertical"
             app:endIconMode="clear_text"
+            android:layout_marginTop="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/send_btn"
             app:layout_constraintStart_toEndOf="@id/camera"

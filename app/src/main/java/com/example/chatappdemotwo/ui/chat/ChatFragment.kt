@@ -34,11 +34,18 @@ class ChatFragment : Fragment() {
         binding.apply {
             setHasOptionsMenu(true)
             (activity as AppCompatActivity).setSupportActionBar(binding.toolbarChat)
+
             if (args.userModel.isGroup!!) {
                 toolbarChat.title = "GROUP"
             } else {
                 toolbarChat.title = args.userModel.friendUsername
-                toolbarChat.subtitle = "Active Now"
+
+                if (args.userModel.isFriendOnline!!) {
+                    toolbarChat.subtitle = "Active Now"
+                } else {
+                    toolbarChat.subtitle = "Offline Now"
+                }
+
                 toolbarChat.isSubtitleCentered = true
                 toolbarChat.setSubtitleTextColor(Color.WHITE)
             }
@@ -74,7 +81,7 @@ class ChatFragment : Fragment() {
     }
 
     private fun sendMessageData(message: String, image: Int, isMe: Boolean) {
-        val chatData = ChatModel(image, message, isMe)
+        val chatData = ChatModel(image, message, isMe, args.userModel.isFriendOnline!!)
         chatModelList.add(chatData)
         setupChatAdapter(chatModelList)
     }
@@ -83,11 +90,9 @@ class ChatFragment : Fragment() {
         ChatAdapter().apply {
             submitList(list.toMutableList())
             binding.chatRecyclerView.apply {
-                layoutManager = LinearLayoutManager(activity).apply {
-                    stackFromEnd = true
-                    reverseLayout = false
-                }
+                layoutManager = LinearLayoutManager(activity).apply { stackFromEnd = true; reverseLayout = false }
             }
+            this.itemCount.let { binding.chatRecyclerView.scrollToPosition(it.minus(1)) }
             binding.chatRecyclerView.adapter = this
         }
     }

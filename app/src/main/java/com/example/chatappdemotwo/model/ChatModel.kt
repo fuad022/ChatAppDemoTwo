@@ -7,5 +7,6 @@ import kotlinx.parcelize.Parcelize
 data class ChatModel(
     val image: Int,
     val message: String,
-    val isMe: Boolean
+    val isMe: Boolean,
+    val isFriendOnline: Boolean
 ) : Parcelable

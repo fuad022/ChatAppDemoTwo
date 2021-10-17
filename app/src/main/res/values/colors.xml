@@ -11,4 +11,7 @@
     <color name="toolbar_color">#3e66c4</color>
     <color name="my_msg_color">#7692f6</color>
     <color name="friend_msg_color">#dfdfdf</color>
+
+    <color name="online">#1dfe1d</color>
+    <color name="offline">#a7a5a6</color>
 </resources>
