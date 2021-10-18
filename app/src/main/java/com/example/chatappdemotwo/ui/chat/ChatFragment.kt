@@ -18,7 +18,7 @@ import com.example.chatappdemotwo.model.ChatModel
 class ChatFragment : Fragment() {
     private val binding by lazy { FragmentChatBinding.inflate(layoutInflater) }
     private val args: ChatFragmentArgs by navArgs()
-    private var chatModelList = ArrayList<ChatModel>()
+    private var chatModelList = arrayListOf<ChatModel>()
     private var index = 0
 
     override fun onCreateView(
@@ -40,11 +40,8 @@ class ChatFragment : Fragment() {
             } else {
                 toolbarChat.title = args.userModel.friendUsername
 
-                if (args.userModel.isFriendOnline!!) {
-                    toolbarChat.subtitle = "Active Now"
-                } else {
-                    toolbarChat.subtitle = "Offline Now"
-                }
+                val activeStatus = if (args.userModel.isFriendOnline!!) "Active Now" else "Offline"
+                toolbarChat.subtitle = activeStatus
 
                 toolbarChat.isSubtitleCentered = true
                 toolbarChat.setSubtitleTextColor(Color.WHITE)
@@ -96,7 +93,6 @@ class ChatFragment : Fragment() {
             binding.chatRecyclerView.adapter = this
         }
     }
-
 }
 
 

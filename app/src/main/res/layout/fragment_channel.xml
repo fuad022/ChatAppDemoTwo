@@ -6,6 +6,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         tools:context=".ui.channel.ChannelFragment">
 
         <com.google.android.material.appbar.AppBarLayout
@@ -41,6 +43,7 @@
             android:drawablePadding="10dp"
             android:hint="@string/search_for_friends"
             android:inputType="textMultiLine"
+            android:maxLength="20"
             android:maxLines="1"
             android:minHeight="48dp"
             android:paddingStart="15dp"

@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/drawable/friend_message_bubble.xml" value="0.37083333333333335" />
+        <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/drawable/ic_clear.xml" value="0.37083333333333335" />
+        <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/drawable/ic_search.xml" value="0.37083333333333335" />
         <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/drawable/my_message_bubble.xml" value="0.37083333333333335" />
         <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/drawable/offline.xml" value="0.37083333333333335" />
         <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/drawable/online.xml" value="0.37083333333333335" />
@@ -14,7 +16,7 @@
         <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/layout/fragment_home.xml" value="0.3546875" />
         <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/layout/friend_message_item.xml" value="0.67" />
         <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/layout/my_message_item.xml" value="0.3546875" />
-        <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/layout/user_channel_horizontal_layout.xml" value="0.75" />
+        <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/layout/user_channel_horizontal_layout.xml" value="0.5" />
         <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/layout/user_channel_vertical_layout.xml" value="0.48378127896200185" />
         <entry key="..\:/AndroidProjects/ChatAppDemoTwo/app/src/main/res/layout/users_group_channel_vertical_layout.xml" value="0.5" />
       </map>

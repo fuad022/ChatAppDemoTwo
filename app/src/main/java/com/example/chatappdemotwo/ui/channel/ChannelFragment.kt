@@ -1,10 +1,13 @@
 package com.example.chatappdemotwo.ui.channel
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.*
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,16 +29,34 @@ class ChannelFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         initToolbar()
-        doSearch()
+        binding.search.setupClearButtonWithAction()
         setupHorizontalAdapter()
         setupVerticalAdapter()
         return binding.root
     }
 
-    private fun doSearch() {
-        binding.search.doAfterTextChanged {
-            filter(it.toString())
-        }
+    @SuppressLint("ClickableViewAccessibility")
+    fun EditText.setupClearButtonWithAction() {
+        addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(ed: Editable?) {
+                filter(ed.toString())
+                val clearIcon = if (ed?.isNotEmpty() == true) R.drawable.ic_clear else 0
+                setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_search, 0, clearIcon, 0)
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
+        })
+
+        setOnTouchListener(View.OnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                if (event.rawX >= (this.right - this.compoundPaddingRight)) {
+                    this.setText("")
+                    return@OnTouchListener true
+                }
+            }
+            return@OnTouchListener false
+        })
     }
 
     private fun filter(text: String) {
