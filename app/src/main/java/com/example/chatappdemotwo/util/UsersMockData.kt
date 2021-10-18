@@ -21,7 +21,9 @@ class UsersMockData {
             UserModel("Frank", "Marta", imagesList[0], imagesList[1], currentTime(), false, true),
             UserModel("Frank", "Francis", imagesList[0], imagesList[3], currentTime(), true, true),
             UserModel("Frank", "Gonzales", imagesList[0], imagesList[5], currentTime(), false, false),
-            UserModel("Frank", "Martina", imagesList[0], imagesList[2], currentTime(), true, false)
+            UserModel("Frank", "Martina", imagesList[0], imagesList[2], currentTime(), true, false),
+            UserModel("Frank", "Nargiz", imagesList[0], imagesList[4], currentTime(), false, true),
+            UserModel("Frank", "John", imagesList[0], imagesList[6], currentTime(), true, false)
         ).forEach {
             usersList.add(it)
         }
