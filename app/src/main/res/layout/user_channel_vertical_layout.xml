@@ -49,11 +49,11 @@
             android:id="@+id/content_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/chats_and_videos"
             android:layout_marginTop="8dp"
+            android:text="@string/chats_and_videos"
             android:textSize="12sp"
-            app:layout_constraintTop_toBottomOf="@id/username_friend_vertical"
-            app:layout_constraintStart_toStartOf="@id/username_friend_vertical" />
+            app:layout_constraintStart_toStartOf="@id/username_friend_vertical"
+            app:layout_constraintTop_toBottomOf="@id/username_friend_vertical" />
 
         <TextView
             android:id="@+id/point_vertical"
@@ -81,26 +81,3 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

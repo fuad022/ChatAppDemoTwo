@@ -9,7 +9,6 @@ import com.example.chatappdemotwo.adapter.holder.ChatMyMessageItemHolder
 import com.example.chatappdemotwo.model.ChatModel
 
 class ChatAdapter : ListAdapter<ChatModel, RecyclerView.ViewHolder>(DiffCallback()) {
-
     private val itemTypeMe = 0
     private val itemTypeSender = 1
 

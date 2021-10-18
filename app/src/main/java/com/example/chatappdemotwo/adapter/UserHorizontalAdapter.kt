@@ -17,15 +17,10 @@ class UserHorizontalAdapter : ListAdapter<UserModel, UserHorizontalAdapter.ItemH
     inner class ItemHolder(private val binding: UserChannelHorizontalLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(userModel: UserModel?) {
             userModel?.let { model ->
-                binding.apply {
-                    imgUserHorizontal.setImageResource(model.friendImage!!)
-                    usernameHorizontal.text = model.friendUsername
-
-                    root.setOnClickListener {
-                        model.let { user ->
-                            setOnItemClick?.invoke(user)
-                        }
-                    }
+                binding.imgUserHorizontal.setImageResource(model.friendImage!!)
+                binding.usernameHorizontal.text = model.friendUsername
+                binding.root.setOnClickListener {
+                    model.let { user -> setOnItemClick?.invoke(user) }
                 }
             }
         }
@@ -59,7 +54,5 @@ class UserHorizontalAdapter : ListAdapter<UserModel, UserHorizontalAdapter.ItemH
 
     private var setOnItemClick: ((UserModel) -> Unit)? = null
 
-    fun setOnClickListener(listener: (UserModel) -> Unit) {
-        setOnItemClick = listener
-    }
+    fun setOnClickListener(listener: (UserModel) -> Unit) { setOnItemClick = listener }
 }

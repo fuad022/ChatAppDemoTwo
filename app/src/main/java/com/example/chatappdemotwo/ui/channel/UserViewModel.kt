@@ -15,17 +15,3 @@ class UserViewModel : ViewModel() {
         _mockUserList.value = usersList.usersData()
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

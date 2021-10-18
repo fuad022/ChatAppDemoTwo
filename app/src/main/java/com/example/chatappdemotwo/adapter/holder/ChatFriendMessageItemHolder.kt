@@ -7,20 +7,14 @@ import com.example.chatappdemotwo.R
 import com.example.chatappdemotwo.databinding.FriendMessageItemBinding
 import com.example.chatappdemotwo.model.ChatModel
 
-class ChatFriendMessageItemHolder(private val binding: FriendMessageItemBinding) :
-    RecyclerView.ViewHolder(binding.root) {
+class ChatFriendMessageItemHolder(private val binding: FriendMessageItemBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(chat: ChatModel) {
-        binding.apply {
-            friendChatImage.setImageResource(chat.image)
-            friendMessageText.text = chat.message
-
-            if (chat.isFriendOnline) {
-                indicator.setBackgroundResource(R.drawable.online)
-            } else {
-                indicator.setBackgroundResource(R.drawable.offline)
-            }
-
-        }
+        binding.friendChatImage.setImageResource(chat.image)
+        binding.friendMessageText.text = chat.message
+        if (chat.isFriendOnline)
+            binding.indicator.setBackgroundResource(R.drawable.online)
+        else
+            binding.indicator.setBackgroundResource(R.drawable.offline)
     }
 
     companion object {

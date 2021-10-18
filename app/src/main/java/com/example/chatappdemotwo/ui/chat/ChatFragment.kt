@@ -31,25 +31,22 @@ class ChatFragment : Fragment() {
     }
 
     private fun initToolbar() {
-        binding.apply {
-            setHasOptionsMenu(true)
-            (activity as AppCompatActivity).setSupportActionBar(binding.toolbarChat)
+        setHasOptionsMenu(true)
+        (activity as AppCompatActivity).setSupportActionBar(binding.toolbarChat)
 
-            if (args.userModel.isGroup!!) {
-                toolbarChat.title = "GROUP"
-            } else {
-                toolbarChat.title = args.userModel.friendUsername
+        if (args.userModel.isGroup!!) {
+            binding.toolbarChat.title = "GROUP"
+        } else {
+            binding.toolbarChat.title = args.userModel.friendUsername
 
-                val activeStatus = if (args.userModel.isFriendOnline!!) "Active Now" else "Offline"
-                toolbarChat.subtitle = activeStatus
+            val activeStatus = if (args.userModel.isFriendOnline!!) "Active Now" else "Offline"
+            binding.toolbarChat.subtitle = activeStatus
 
-                toolbarChat.isSubtitleCentered = true
-                toolbarChat.setSubtitleTextColor(Color.WHITE)
-            }
-
-            toolbarChat.setNavigationOnClickListener {
-                findNavController().navigate(R.id.action_chatFragment_to_channelFragment)
-            }
+            binding.toolbarChat.isSubtitleCentered = true
+            binding.toolbarChat.setSubtitleTextColor(Color.WHITE)
+        }
+        binding.toolbarChat.setNavigationOnClickListener {
+            findNavController().navigate(R.id.action_chatFragment_to_channelFragment)
         }
     }
 
@@ -59,27 +56,23 @@ class ChatFragment : Fragment() {
     }
 
     private fun clickSendBtn() {
-        binding.apply {
-            sendBtn.setOnClickListener {
-                index++
-                val message = edt.text.toString()
-                if (message.isEmpty()) {
-                    Toast.makeText(it.context, "Start typing", Toast.LENGTH_SHORT).show()
-                } else {
-                    if (index % 2 == 0) {
-                        sendMessageData(message, args.userModel.friendImage!!, false)
-                    } else {
-                        sendMessageData(message, args.userModel.myImage!!, true)
-                    }
-                    edt.setText("")
-                }
+        binding.sendBtn.setOnClickListener {
+            index++
+            val message = binding.edt.text.toString()
+            if (message.isEmpty()) {
+                Toast.makeText(it.context, "Start typing", Toast.LENGTH_SHORT).show()
+            } else {
+                if (index % 2 == 0)
+                    sendMessageData(message, args.userModel.friendImage!!, false)
+                else
+                    sendMessageData(message, args.userModel.myImage!!, true)
+                binding.edt.setText("")
             }
         }
     }
 
     private fun sendMessageData(message: String, image: Int, isMe: Boolean) {
-        val chatData = ChatModel(image, message, isMe, args.userModel.isFriendOnline!!)
-        chatModelList.add(chatData)
+        chatModelList.add(ChatModel(image, message, isMe, args.userModel.isFriendOnline!!))
         setupChatAdapter(chatModelList)
     }
 
@@ -94,18 +87,3 @@ class ChatFragment : Fragment() {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

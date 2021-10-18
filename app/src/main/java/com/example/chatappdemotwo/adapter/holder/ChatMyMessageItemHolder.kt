@@ -9,10 +9,8 @@ import com.example.chatappdemotwo.model.ChatModel
 class ChatMyMessageItemHolder(private val binding: MyMessageItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(chat: ChatModel) {
-        binding.apply {
-            myChatImage.setImageResource(chat.image)
-            myMessageText.text = chat.message
-        }
+        binding.myChatImage.setImageResource(chat.image)
+        binding.myMessageText.text = chat.message
     }
 
     companion object {

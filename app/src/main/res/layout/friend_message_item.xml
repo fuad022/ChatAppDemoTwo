@@ -9,12 +9,12 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/friend_chat_image"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
             android:backgroundTint="@android:color/transparent"
             android:scaleType="centerCrop"
-            android:layout_marginBottom="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:shapeAppearanceOverlay="@style/Circular"
@@ -24,32 +24,30 @@
             android:id="@+id/indicator"
             android:layout_width="9dp"
             android:layout_height="9dp"
-            android:layout_marginBottom="3dp"
+            android:layout_marginBottom="6dp"
             android:background="@drawable/online"
-            app:layout_constraintEnd_toEndOf="@id/friend_chat_image"
-            app:layout_constraintBottom_toBottomOf="@id/friend_chat_image" />
+            app:layout_constraintBottom_toBottomOf="@id/friend_chat_image"
+            app:layout_constraintEnd_toEndOf="@id/friend_chat_image" />
 
         <TextView
             android:id="@+id/friend_message_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/friend_message_bubble"
             android:lineSpacingExtra="2dp"
-            android:paddingStart="35dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="20dp"
+            android:paddingStart="30dp"
+            android:paddingTop="9dp"
+            android:paddingEnd="15dp"
             android:paddingBottom="10dp"
             android:textColor="@color/black"
-            android:textSize="13.5sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@id/friend_chat_image"
             app:layout_constraintStart_toEndOf="@id/friend_chat_image"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_max="wrap"
-            app:layout_constraintWidth_percent="0.58"
-            tools:text="I didn't see your message that is why I am answering so late to you, really sorry man" />
-
+            app:layout_constraintWidth_percent="0.7"
+            tools:text="Hello" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
-

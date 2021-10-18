@@ -11,30 +11,20 @@ import com.example.chatappdemotwo.databinding.UsersGroupChannelVerticalLayoutBin
 import com.example.chatappdemotwo.model.UserModel
 
 class UserVerticalAdapter : ListAdapter<UserModel, RecyclerView.ViewHolder>(DiffCallback()) {
-
     private val itemGroup = 0
     private val itemSingle = 1
 
     inner class UserVerticalItemHolder(private val binding: UserChannelVerticalLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(userModel: UserModel?) {
             userModel?.let { model ->
-                binding.apply {
-                    imgFriendVertical.setImageResource(model.friendImage!!)
-                    usernameFriendVertical.text = model.friendUsername
-                    lastActiveTimeVertical.text = model.activeTime
-
-                    if (model.isFriendOnline!!){
-                        indicator.setBackgroundResource(R.drawable.online)
-                    } else {
-                        indicator.setBackgroundResource(R.drawable.offline)
-                    }
-
-                    root.setOnClickListener {
-                        model.let { user ->
-                            setOnItemClick?.invoke(user)
-                        }
-                    }
-                }
+                binding.imgFriendVertical.setImageResource(model.friendImage!!)
+                binding.usernameFriendVertical.text = model.friendUsername
+                binding.lastActiveTimeVertical.text = model.activeTime
+                if (model.isFriendOnline!!)
+                    binding.indicator.setBackgroundResource(R.drawable.online)
+                else
+                    binding.indicator.setBackgroundResource(R.drawable.offline)
+                binding.root.setOnClickListener { model.let { user -> setOnItemClick?.invoke(user) } }
             }
         }
     }
@@ -42,19 +32,12 @@ class UserVerticalAdapter : ListAdapter<UserModel, RecyclerView.ViewHolder>(Diff
     inner class UserGroupVerticalItemHolder(private val binding: UsersGroupChannelVerticalLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(userModel: UserModel?) {
             userModel?.let { model ->
-                binding.apply {
-                    imgMyUserGroupVertical.setImageResource(model.myImage!!)
-                    imgFriendUserGroupVertical.setImageResource(model.friendImage!!)
-                    myNameGroupVertical.text = model.myUsername
-                    friendNameGroupVertical.text = model.friendUsername
-                    lastActiveTimeGroupVertical.text = model.activeTime
-
-                    root.setOnClickListener {
-                        model.let { user ->
-                            setOnItemClick?.invoke(user)
-                        }
-                    }
-                }
+                binding.imgMyUserGroupVertical.setImageResource(model.myImage!!)
+                binding.imgFriendUserGroupVertical.setImageResource(model.friendImage!!)
+                binding.myNameGroupVertical.text = model.myUsername
+                binding.friendNameGroupVertical.text = model.friendUsername
+                binding.lastActiveTimeGroupVertical.text = model.activeTime
+                binding.root.setOnClickListener { model.let { user -> setOnItemClick?.invoke(user) } }
             }
         }
     }
@@ -104,7 +87,5 @@ class UserVerticalAdapter : ListAdapter<UserModel, RecyclerView.ViewHolder>(Diff
 
     private var setOnItemClick: ((UserModel) -> Unit)? = null
 
-    fun setOnClickListener(listener: (UserModel) -> Unit) {
-        setOnItemClick = listener
-    }
+    fun setOnClickListener(listener: (UserModel) -> Unit) { setOnItemClick = listener }
 }

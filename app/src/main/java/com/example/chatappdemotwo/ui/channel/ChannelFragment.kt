@@ -43,7 +43,6 @@ class ChannelFragment : Fragment() {
                 val clearIcon = if (ed?.isNotEmpty() == true) R.drawable.ic_clear else 0
                 setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_search, 0, clearIcon, 0)
             }
-
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
         })
@@ -116,13 +115,3 @@ class ChannelFragment : Fragment() {
         })
     }
 }
-
-
-
-
-
-
-
-
-
-

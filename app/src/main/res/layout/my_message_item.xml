@@ -15,23 +15,23 @@
             android:layout_marginEnd="15dp"
             android:background="@drawable/my_message_bubble"
             android:lineSpacingExtra="2dp"
-            android:paddingStart="20dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="35dp"
+            android:paddingStart="15dp"
+            android:paddingTop="9dp"
+            android:paddingEnd="30dp"
             android:paddingBottom="10dp"
             android:textColor="@color/white"
-            android:textSize="13.5sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/my_chat_image"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_max="wrap"
-            app:layout_constraintWidth_percent="0.58"
-            tools:text="I didn't see your message that is why I am answering so late to you, really sorry man" />
+            app:layout_constraintWidth_percent="0.7"
+            tools:text="Hello" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/my_chat_image"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_marginEnd="10dp"
             android:backgroundTint="@android:color/transparent"
             android:scaleType="centerCrop"
@@ -42,23 +42,3 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
