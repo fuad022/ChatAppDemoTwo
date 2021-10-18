@@ -32,7 +32,7 @@ class UsersMockData {
 
     private fun currentTime(): String {
         val calendar = Calendar.getInstance()
-        val time = "${calendar.get(Calendar.HOUR)}:${calendar.get(Calendar.MINUTE)}"
+        val time = "${calendar.get(Calendar.HOUR_OF_DAY)}:${calendar.get(Calendar.MINUTE)}"
         return time
     }
 }
