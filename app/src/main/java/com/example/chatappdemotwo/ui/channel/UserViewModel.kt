@@ -8,7 +8,7 @@ import com.example.chatappdemotwo.util.UsersMockData
 
 class UserViewModel : ViewModel() {
     private val usersList = UsersMockData()
-    val _mockUserList: MutableLiveData<List<UserModel>> = MutableLiveData()
+    private val _mockUserList = MutableLiveData<List<UserModel>>()
     val mockUserList: LiveData<List<UserModel>> get() = _mockUserList
 
     init {

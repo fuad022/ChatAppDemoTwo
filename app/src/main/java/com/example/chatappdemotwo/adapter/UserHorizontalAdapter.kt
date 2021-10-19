@@ -2,15 +2,11 @@ package com.example.chatappdemotwo.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import androidx.fragment.app.viewModels
 import com.example.chatappdemotwo.databinding.UserChannelHorizontalLayoutBinding
 import com.example.chatappdemotwo.model.UserModel
-import com.example.chatappdemotwo.ui.channel.ChannelFragmentDirections
-import com.example.chatappdemotwo.ui.channel.UserViewModel
 
 class UserHorizontalAdapter : ListAdapter<UserModel, UserHorizontalAdapter.ItemHolder>(DiffCallback()) {
 

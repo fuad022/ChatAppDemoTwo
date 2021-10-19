@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,6 +19,7 @@ class ChatFragment : Fragment() {
     private val binding by lazy { FragmentChatBinding.inflate(layoutInflater) }
     private val args: ChatFragmentArgs by navArgs()
     private var chatModelList = arrayListOf<ChatModel>()
+    private val viewModel: ChatViewModel by viewModels()
     private var index = 0
 
     override fun onCreateView(
@@ -63,27 +64,26 @@ class ChatFragment : Fragment() {
                 Toast.makeText(it.context, "Start typing", Toast.LENGTH_SHORT).show()
             } else {
                 if (index % 2 == 0)
-                    sendMessageData(message, args.userModel.friendImage!!, false)
+                    viewModel.sendMessageData(ChatModel(args.userModel.friendImage!!, message, false, args.userModel.isFriendOnline!!))
                 else
-                    sendMessageData(message, args.userModel.myImage!!, true)
+                    viewModel.sendMessageData(ChatModel(args.userModel.myImage!!, message, true, args.userModel.isFriendOnline!!))
                 binding.edt.setText("")
             }
         }
+        observeChatMessage()
     }
 
-    private fun sendMessageData(message: String, image: Int, isMe: Boolean) {
-        chatModelList.add(ChatModel(image, message, isMe, args.userModel.isFriendOnline!!))
-        setupChatAdapter(chatModelList)
-    }
-
-    private fun setupChatAdapter(list: ArrayList<ChatModel>) {
-        ChatAdapter().apply {
-            submitList(list.toMutableList())
-            binding.chatRecyclerView.apply {
-                layoutManager = LinearLayoutManager(activity).apply { stackFromEnd = true; reverseLayout = false }
+    private fun observeChatMessage() {
+        viewModel.chatDataList.observe(viewLifecycleOwner, {
+            ChatAdapter().apply {
+                chatModelList.add(it)
+                submitList(chatModelList.toMutableList())
+                binding.chatRecyclerView.apply {
+                    layoutManager = LinearLayoutManager(activity).apply { stackFromEnd = true; reverseLayout = false }
+                }
+                this.itemCount.let { binding.chatRecyclerView.scrollToPosition(it.minus(1)) }
+                binding.chatRecyclerView.adapter = this
             }
-            this.itemCount.let { binding.chatRecyclerView.scrollToPosition(it.minus(1)) }
-            binding.chatRecyclerView.adapter = this
-        }
+        })
     }
 }
