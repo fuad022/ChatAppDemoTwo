@@ -1,6 +1,5 @@
 package com.example.chatappdemotwo.ui.chat
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -9,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chatappdemotwo.R
 import com.example.chatappdemotwo.adapter.ChatAdapter
 import com.example.chatappdemotwo.databinding.FragmentChatBinding
