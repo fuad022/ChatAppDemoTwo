@@ -42,9 +42,6 @@ class ChatFragment : Fragment() {
 
             val activeStatus = if (args.userModel.isFriendOnline!!) "Active Now" else "Offline"
             binding.toolbarChat.subtitle = activeStatus
-
-            binding.toolbarChat.isSubtitleCentered = true
-            binding.toolbarChat.setSubtitleTextColor(Color.WHITE)
         }
         binding.toolbarChat.setNavigationOnClickListener {
             findNavController().navigate(R.id.action_chatFragment_to_channelFragment)
@@ -78,9 +75,6 @@ class ChatFragment : Fragment() {
             ChatAdapter().apply {
                 chatModelList.add(it)
                 submitList(chatModelList.toMutableList())
-                binding.chatRecyclerView.apply {
-                    layoutManager = LinearLayoutManager(activity).apply { stackFromEnd = true; reverseLayout = false }
-                }
                 this.itemCount.let { binding.chatRecyclerView.scrollToPosition(it.minus(1)) }
                 binding.chatRecyclerView.adapter = this
             }

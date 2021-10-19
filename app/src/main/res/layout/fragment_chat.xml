@@ -17,6 +17,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:menu="@menu/settings_menu"
             app:navigationIcon="@drawable/ic_arrow_back"
+            app:subtitleCentered="true"
+            app:subtitleTextColor="@color/white"
             app:title="Username"
             app:titleCentered="true"
             app:titleTextColor="@color/white" />
@@ -25,8 +27,11 @@
             android:id="@+id/chat_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/edt"
-            app:layout_constraintTop_toBottomOf="@id/toolbar_chat" />
+            app:layout_constraintTop_toBottomOf="@id/toolbar_chat"
+            app:reverseLayout="false"
+            app:stackFromEnd="true" />
 
         <ImageView
             android:id="@+id/camera"

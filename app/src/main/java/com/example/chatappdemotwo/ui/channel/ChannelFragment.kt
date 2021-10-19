@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chatappdemotwo.R
 import com.example.chatappdemotwo.adapter.UserHorizontalAdapter
 import com.example.chatappdemotwo.adapter.UserVerticalAdapter
@@ -110,7 +109,6 @@ class ChannelFragment : Fragment() {
         viewModel.mockUserList.observe(viewLifecycleOwner, {
             usersList.addAll(it)
             userVerticalAdapter.submitList(it.toMutableList())
-            binding.usersRecyclerViewVertical.layoutManager = LinearLayoutManager(activity)
             binding.usersRecyclerViewVertical.adapter = userVerticalAdapter
         })
     }
