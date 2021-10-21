@@ -4,9 +4,8 @@ import com.example.chatappdemotwo.model.ChatModel
 import com.example.chatappdemotwo.model.UserModel
 import com.example.chatappdemotwo.util.UsersMockData
 
-class ChatRepositoryImpl : ChatRepository {
+class ChatRepositoryImpl(private val usersList: UsersMockData) : ChatRepository {
     override fun getUsers(): List<UserModel> {
-        val usersList = UsersMockData()
         return usersList.usersData()
     }
 
