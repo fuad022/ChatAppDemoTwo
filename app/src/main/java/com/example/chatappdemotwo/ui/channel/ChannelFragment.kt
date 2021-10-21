@@ -8,7 +8,6 @@ import android.view.*
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.chatappdemotwo.R
 import com.example.chatappdemotwo.adapter.UserHorizontalAdapter
@@ -19,7 +18,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ChannelFragment : Fragment() {
     private val binding by lazy { FragmentChannelBinding.inflate(layoutInflater) }
-    //    private val viewModel: UserViewModel by viewModels()
     private val viewModel: UserViewModel by viewModel()
     private val userHorizontalAdapter = UserHorizontalAdapter()
     private val userVerticalAdapter = UserVerticalAdapter()

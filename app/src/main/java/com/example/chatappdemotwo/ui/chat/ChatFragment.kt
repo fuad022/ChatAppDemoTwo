@@ -5,7 +5,6 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.chatappdemotwo.R
@@ -18,7 +17,6 @@ class ChatFragment : Fragment() {
     private val binding by lazy { FragmentChatBinding.inflate(layoutInflater) }
     private val args: ChatFragmentArgs by navArgs()
     private var chatModelList = arrayListOf<ChatModel>()
-    //    private val viewModel: ChatViewModel by viewModels()
     private val viewModel: ChatViewModel by viewModel()
     private var index = 0
 
