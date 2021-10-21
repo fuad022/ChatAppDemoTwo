@@ -12,12 +12,14 @@ import com.example.chatappdemotwo.R
 import com.example.chatappdemotwo.adapter.ChatAdapter
 import com.example.chatappdemotwo.databinding.FragmentChatBinding
 import com.example.chatappdemotwo.model.ChatModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ChatFragment : Fragment() {
     private val binding by lazy { FragmentChatBinding.inflate(layoutInflater) }
     private val args: ChatFragmentArgs by navArgs()
     private var chatModelList = arrayListOf<ChatModel>()
-    private val viewModel: ChatViewModel by viewModels()
+    //    private val viewModel: ChatViewModel by viewModels()
+    private val viewModel: ChatViewModel by viewModel()
     private var index = 0
 
     override fun onCreateView(

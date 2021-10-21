@@ -15,10 +15,12 @@ import com.example.chatappdemotwo.adapter.UserHorizontalAdapter
 import com.example.chatappdemotwo.adapter.UserVerticalAdapter
 import com.example.chatappdemotwo.databinding.FragmentChannelBinding
 import com.example.chatappdemotwo.model.UserModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ChannelFragment : Fragment() {
     private val binding by lazy { FragmentChannelBinding.inflate(layoutInflater) }
-    private val viewModel: UserViewModel by viewModels()
+    //    private val viewModel: UserViewModel by viewModels()
+    private val viewModel: UserViewModel by viewModel()
     private val userHorizontalAdapter = UserHorizontalAdapter()
     private val userVerticalAdapter = UserVerticalAdapter()
     private val usersList = arrayListOf<UserModel>()
