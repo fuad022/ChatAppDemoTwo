@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_channel">
         <action
             android:id="@+id/action_channelFragment_to_chatFragment"
-            app:destination="@id/chatFragment" />
+            app:destination="@id/chatFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/chatFragment"
@@ -24,6 +28,8 @@
             app:argType="com.example.chatappdemotwo.model.UserModel" />
         <action
             android:id="@+id/action_chatFragment_to_channelFragment"
-            app:destination="@id/channelFragment" />
+            app:destination="@id/channelFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
     </fragment>
 </navigation>
