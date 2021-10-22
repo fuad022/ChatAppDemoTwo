@@ -5,11 +5,6 @@ import com.example.chatappdemotwo.model.UserModel
 import com.example.chatappdemotwo.util.UsersMockData
 
 class ChatRepositoryImpl(private val usersList: UsersMockData) : ChatRepository {
-    override fun getUsers(): List<UserModel> {
-        return usersList.usersData()
-    }
-
-    override fun sendMessage(chatModel: ChatModel): ChatModel {
-        return chatModel
-    }
+    override fun getUsers(): List<UserModel> = usersList.usersData()
+    override fun sendMessage(chatModel: ChatModel): ChatModel = chatModel
 }
