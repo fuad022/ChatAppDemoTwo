@@ -1,7 +1,9 @@
 package com.example.chatappdemotwo.ui.chat
 
+import android.content.Context
 import android.os.Bundle
 import android.view.*
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -43,6 +45,9 @@ class ChatFragment : Fragment() {
         }
         binding.toolbarChat.setNavigationOnClickListener {
             findNavController().navigate(R.id.action_chatFragment_to_channelFragment)
+
+            val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view?.windowToken, 0)
         }
     }
 
