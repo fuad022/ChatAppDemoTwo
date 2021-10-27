@@ -20,7 +20,7 @@ class ChatFragment : Fragment() {
     private val args: ChatFragmentArgs by navArgs()
     private var chatModelList = arrayListOf<ChatModel>()
     private val viewModel: ChatViewModel by viewModel()
-    private var index = 0
+    private var index = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,16 +58,16 @@ class ChatFragment : Fragment() {
 
     private fun clickSendBtn() {
         binding.sendBtn.setOnClickListener {
-            index++
             val message = binding.edt.text.toString()
             if (message.isEmpty()) {
-                Toast.makeText(it.context, "Start typing", Toast.LENGTH_SHORT).show()
+                Toast.makeText(it.context, "Start typing, please!", Toast.LENGTH_SHORT).show()
             } else {
                 if (index % 2 == 0)
                     viewModel.sendMessageData(ChatModel(args.userModel.friendImage!!, message, false, args.userModel.isFriendOnline!!))
                 else
                     viewModel.sendMessageData(ChatModel(args.userModel.myImage!!, message, true, args.userModel.isFriendOnline!!))
                 binding.edt.setText("")
+                index++
             }
         }
         observeChatMessage()
