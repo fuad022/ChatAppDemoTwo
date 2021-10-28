@@ -8,20 +8,28 @@
         android:layout_height="match_parent"
         tools:context=".ui.chat.ChatFragment">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar_chat"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_chat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/toolbar_color"
-            android:minHeight="?attr/actionBarSize"
-            app:layout_constraintTop_toTopOf="parent"
-            app:menu="@menu/settings_menu"
-            app:navigationIcon="@drawable/ic_arrow_back"
-            app:subtitleCentered="true"
-            app:subtitleTextColor="@color/white"
-            app:title="Username"
-            app:titleCentered="true"
-            app:titleTextColor="@color/white" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar_chat"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:minHeight="?attr/actionBarSize"
+                app:menu="@menu/settings_menu"
+                app:navigationIcon="@drawable/ic_arrow_back"
+                app:subtitleCentered="true"
+                app:subtitleTextColor="@color/white"
+                app:title="Username"
+                app:titleCentered="true"
+                app:titleTextColor="@color/white" />
+        </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/chat_recycler_view"
@@ -29,7 +37,7 @@
             android:layout_height="0dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/edt"
-            app:layout_constraintTop_toBottomOf="@id/toolbar_chat"
+            app:layout_constraintTop_toBottomOf="@id/app_bar_chat"
             app:reverseLayout="false"
             app:stackFromEnd="true" />
 
