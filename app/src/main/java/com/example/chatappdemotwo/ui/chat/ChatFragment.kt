@@ -44,8 +44,7 @@ class ChatFragment : Fragment() {
             binding.toolbarChat.subtitle = activeStatus
         }
         binding.toolbarChat.setNavigationOnClickListener {
-            findNavController().navigate(R.id.action_chatFragment_to_channelFragment)
-
+            activity?.onBackPressed()
             val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(view?.windowToken, 0)
         }

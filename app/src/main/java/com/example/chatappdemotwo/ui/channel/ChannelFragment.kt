@@ -34,6 +34,11 @@ class ChannelFragment : Fragment() {
         return binding.root
     }
 
+    private fun initToolbar() {
+        setHasOptionsMenu(true)
+        (activity as AppCompatActivity).setSupportActionBar(binding.toolbarChannel)
+    }
+
     @SuppressLint("ClickableViewAccessibility")
     fun EditText.setupClearButtonWithAction() {
         addTextChangedListener(object : TextWatcher {
@@ -65,12 +70,7 @@ class ChannelFragment : Fragment() {
             userVerticalAdapter.submitList(filteredUsersList.toMutableList())
         }
     }
-
-    private fun initToolbar() {
-        setHasOptionsMenu(true)
-        (activity as AppCompatActivity).setSupportActionBar(binding.toolbarChannel)
-    }
-
+    
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.menu, menu)
